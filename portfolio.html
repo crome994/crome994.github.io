@@ -4,10 +4,10 @@
         <title>Chris's Amazing Website</title>
          <style type="text/css">
             body {
-                background: rgb(125, 198, 205);
+                background: rgb(0,12,247);
                 color: rgb(45, 45, 45);
                 padding: 10px;
-                font-family: arial;
+                font-family: fantasy;
             }
             header {
                 font-size: 1.5em;
@@ -23,10 +23,13 @@
     
             /* navigation menu */
             nav {
-                background: rgb(239, 80, 41);
+                background: rgb(247,0,0);
                 margin: 0 auto;
                 display: flex;
                 padding: 10px;
+                margin-bottom: 20px;
+                font-family: fantasy;
+
             }
             nav header {
                 display: flex;
@@ -81,22 +84,25 @@
     </head>
 
     <body>
-        <nav>
-            <header>Chris's Glorious Website</header>
-            <ul>
-                <li><a href="index.html">Home</a>
-                </li>
-                <li><a href="portfolio.html">Portfolio</a>
-                </li>
-            </ul>
-        </nav>
-        <main>
-            <div class="content">
-                <h1>Portfolio</h1>
-                <ul id="portfolio">
-                </ul>
-            </div>
-        </main>
+        <div id="all-contents">
         
+            <nav>
+                <header>Chris's Glorious Website</header>
+                <ul>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="portfolio.html">Portfolio</a>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <div class="content">
+                    <h1>Portfolio</h1>
+                    <ul id="portfolio">
+                    </ul>
+                </div>
+            </main>
+        </div>    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
     </body>
-</html>
